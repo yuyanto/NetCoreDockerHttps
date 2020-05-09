@@ -1,0 +1,4 @@
+﻿mkdir conf.d
+dotnet dev-certs https --clean
+dotnet dev-certs https -ep ./conf.d/https/dev_cert.pfx -p 123456
+dotnet dev-certs https --trust
