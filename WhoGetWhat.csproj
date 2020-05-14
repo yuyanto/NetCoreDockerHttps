@@ -4,6 +4,7 @@
     <UserSecretsId>aspnet-WhoGetWhat-B4736C99-1EFE-42F4-B0C3-6ED5282901B8</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <Nullable>annotations</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.3" />

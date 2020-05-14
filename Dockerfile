@@ -24,14 +24,14 @@ RUN dotnet build "WhoGetWhat.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "WhoGetWhat.csproj" -c Release -o /app/publish
 
-RUN dotnet user-secrets set "Authentication:Google:ClientId" "720837966232-gskksqi02tu6ojulnl49erm0c4p4cfsa.apps.googleusercontent.com"
-RUN dotnet user-secrets set "Authentication:Google:ClientSecret" "J2T0EQ5Yt_gJSLOGQO6XHBvY"
+#RUN dotnet user-secrets set "Authentication:Google:ClientId" "720837966232-gskksqi02tu6ojulnl49erm0c4p4cfsa.apps.googleusercontent.com"
+#RUN dotnet user-secrets set "Authentication:Google:ClientSecret" "J2T0EQ5Yt_gJSLOGQO6XHBvY"
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 COPY . /app
-#RUN chmod +x ./entrypoint.sh
-#CMD /bin/bash ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+CMD /bin/bash ./entrypoint.sh
 
 ENTRYPOINT ["dotnet", "WhoGetWhat.dll"]
